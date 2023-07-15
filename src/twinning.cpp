@@ -17,29 +17,29 @@
 class DF2
 {
 private:
-	std::shared_ptr<Rcpp::NumericMatrix> df_;
+    std::shared_ptr<Rcpp::NumericMatrix> df_;
     bool subset_ = false;
     std::vector<std::size_t>* indices_;
 
 public:
-	void import_data(Rcpp::NumericMatrix& df) { df_ = std::make_shared<Rcpp::NumericMatrix>(Rcpp::transpose(df)); }
+    void import_data(Rcpp::NumericMatrix& df) { df_ = std::make_shared<Rcpp::NumericMatrix>(Rcpp::transpose(df)); }
+    
+    std::size_t kdtree_get_point_count() const { return subset_ ? indices_->size() : df_->cols(); }
 
-	std::size_t kdtree_get_point_count() const { return subset_ ? indices_->size() : df_->cols(); }
-
-	double kdtree_get_pt(const std::size_t idx, const std::size_t dim) const { return subset_ ? (*df_)(dim, indices_->at(idx)) : (*df_)(dim, idx); }
-
-	const double* get_row(const std::size_t idx) const { return &(*df_)(0, idx); }
-
+    double kdtree_get_pt(const std::size_t idx, const std::size_t dim) const { return subset_ ? (*df_)(dim, indices_->at(idx)) : (*df_)(dim, idx); }
+    
+    const double* get_row(const std::size_t idx) const { return &(*df_)(0, idx); }
+    
     void subset_on(std::vector<std::size_t>* indices) 
     { 
         subset_ = true; 
         indices_ = indices;
     }
-
+    
     void subset_off() { subset_ = false; }
-
-	template <class BBOX>
-	bool kdtree_get_bbox(BBOX&) const { return false; }
+    
+    template <class BBOX>
+    bool kdtree_get_bbox(BBOX&) const { return false; }
 };
 
 

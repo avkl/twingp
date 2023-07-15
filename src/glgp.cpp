@@ -17,21 +17,21 @@
 class DF
 {
 private:
-	std::shared_ptr<Rcpp::NumericMatrix> df_;
+    std::shared_ptr<Rcpp::NumericMatrix> df_;
 
 public:
-	void import_data(Rcpp::NumericMatrix& df) { df_ = std::make_shared<Rcpp::NumericMatrix>(Rcpp::transpose(df)); }
-
-	const double* get_row(const std::size_t idx) const { return &(*df_)(0, idx); }
-
+    void import_data(Rcpp::NumericMatrix& df) { df_ = std::make_shared<Rcpp::NumericMatrix>(Rcpp::transpose(df)); }
+    
+    const double* get_row(const std::size_t idx) const { return &(*df_)(0, idx); }
+    
     double get_value(const std::size_t idx, const std::size_t dim) const { return (*df_)(dim, idx); }
 
     std::size_t kdtree_get_point_count() const { return df_->cols(); }
-
-	double kdtree_get_pt(const std::size_t idx, const std::size_t dim) const { return (*df_)(dim, idx); }
+    
+    double kdtree_get_pt(const std::size_t idx, const std::size_t dim) const { return (*df_)(dim, idx); }
 
     template <class BBOX>
-	bool kdtree_get_bbox(BBOX&) const { return false; }
+    bool kdtree_get_bbox(BBOX&) const { return false; }
 };
 
 double mse(unsigned n, const double* sParams, double* grad, void* mse_data);
