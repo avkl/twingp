@@ -49,14 +49,14 @@ typedef nanoflann::KDTreeSingleIndexDynamicAdaptor<nanoflann::L2_Adaptor<double,
 class KDTree
 {
 private:
-	const std::size_t dim_;
-	const std::size_t N_;
-	const std::size_t r_;
+    const std::size_t dim_;
+    const std::size_t N_;
+    const std::size_t r_;
     const std::size_t rv_;
     const std::size_t runs_;
     const std::vector<std::size_t> u1_;
-	const std::size_t leaf_size_;
-	DF2 data_;
+    const std::size_t leaf_size_;
+    DF2 data_;
     Rcpp::List returns_;
 
 public:
