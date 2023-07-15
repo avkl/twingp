@@ -1,0 +1,19 @@
+Package: twingp
+Type: Package
+Title: A Fast Global-Local Gaussian Process Approximation
+Version: 1.0.0
+Date: 2023-07-15
+Authors@R: 
+	c(person("Akhil", "Vakayil", role=c("aut", "cre"), email="akhilv@gatech.edu", comment=c(ORCID="0000-0003-3684-6617")),
+	person(c("V.", "Roshan"), "Joseph", role=c("aut", "ths"), comment=c(ORCID="0000-0002-9430-5301")),
+    person(c("Jose", "L."), "Blanco", role="ctb", comment="nanoflann author"))
+Description: A global-local approximation framework for large-scale Gaussian process modeling. 
+                This work is supported by U.S. NSF grants CMMI-1921646 and DMREF-1921873. 
+License: Apache License (== 2.0)
+Depends: R (>= 3.0.2)
+Imports: Rcpp, nloptr (>= 1.2.0)
+LinkingTo: Rcpp, RcppEigen, nloptr (>= 1.2.0)
+RoxygenNote: 7.2.3
+Encoding: UTF-8
+
+
