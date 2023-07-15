@@ -228,7 +228,7 @@ public:
 // [[Rcpp::export]]
 Rcpp::List get_twinIndices(Rcpp::NumericMatrix& data, std::size_t r, std::size_t rv, std::size_t runs, std::vector<std::size_t>& u1, std::size_t leaf_size=8)
 {
-	KDTree tree(data, r, rv, runs, u1, leaf_size);
-	return tree.twin();
+    KDTree tree(data, r, rv, runs, u1, leaf_size);
+    return tree.twin();
 }
 
