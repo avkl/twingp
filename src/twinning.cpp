@@ -60,14 +60,14 @@ private:
     Rcpp::List returns_;
 
 public:
-	KDTree(Rcpp::NumericMatrix& data, std::size_t r, std::size_t rv, std::size_t runs, std::vector<std::size_t>& u1, std::size_t leaf_size) : 
-	dim_(data.cols()), N_(data.rows()), r_(r), rv_(rv), runs_(runs), u1_(u1), leaf_size_(leaf_size)
-	{
-		data_.import_data(data);
-	}
+    KDTree(Rcpp::NumericMatrix& data, std::size_t r, std::size_t rv, std::size_t runs, std::vector<std::size_t>& u1, std::size_t leaf_size) : 
+    dim_(data.cols()), N_(data.rows()), r_(r), rv_(rv), runs_(runs), u1_(u1), leaf_size_(leaf_size)
+    {
+        data_.import_data(data);
+    }
 
-	Rcpp::List twin()
-	{
+    Rcpp::List twin()
+    {
         std::vector<std::vector<std::size_t>> all_indices;
         std::vector<double> min_dist;
         all_indices.resize(runs_);
@@ -136,7 +136,7 @@ public:
         returns_["theta_l"] = theta_l();
         returns_["vIndices"] = vIndices();
         return returns_;
-	}
+    }
 
     double theta_l()
     {
